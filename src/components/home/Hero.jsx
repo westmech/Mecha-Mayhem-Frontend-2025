@@ -68,14 +68,14 @@ const Hero = () => {
                 <div className="sm:flex sm:flex-col items-center sm:items-end sm:justify-end 2xl:w-[calc(57vw+(1900px-100vw)*1/2)] 2xl:-ml-[calc((1900px-100vw)*1/2)] xl:w-[55vw] lg:w-[55vw] md:w-[55vw]">
 
                     {/* year */}
-                    <Year className="order-1 sm:order-1" startYear={2019} targetYear={2025} startAnimation={startAnimation} />
+                    <Year className="order-1 sm:order-1" startYear={2019} targetYear={2026} startAnimation={startAnimation} />
 
                     <p className={`flex flex-row order-2 sm:order-3 sm:text-white text-[#9F9F9F] font-bebas 2xl:text-6xl text-5xl sm:absolute w-full sm:items-start justify-center 2xl:pl-[16vw] lg:pl-[12vw] md:pl-[12vw] sm:mb-[4vh] -mb-[1vh] -skew-x-12 sm:transition-opacity duration-500 ${fadeOut ? "opacity-100" : "opacity-0"} delay-[1000ms] mt-10 -mb-4`}>
                         FEBRUARY
                     </p>
 
                     {/* day */}
-                    <Day className="mt-12 order-3 sm:order-2" startDay={22} targetDay={7} startAnimation={startAnimation} />
+                    <Day className="mt-12 order-3 sm:order-2" startDay={22} targetDay={6} startAnimation={startAnimation} />
                 </div>
             </div>
 
