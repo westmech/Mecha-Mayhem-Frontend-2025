@@ -12,8 +12,7 @@ const Streams = () => {
                         STREAMS
                     </header>
                     <p className="font-lexend sm:text-3xl text-xl sm:w-[30vw] sm:-mt-5 sm:text-left text-center">
-                        High-definition streams that capture every moment of the
-                        event.
+                        Mecha Mayhem returns February 2026. See our trailer! 
                     </p>
                     <figure className="flex sm:hidden flex-row-centered w-full">
                         <div className="relative w-[100vw] h-[60vw] mt-6">
@@ -25,7 +24,15 @@ const Streams = () => {
                             />
                         </div>
                     </figure>
-                    <Button
+                    <div className="sm:w-[27vw] w-[80vw] sm:h-[15vw] h-[45vw] border-2 border-white sm:mt-20 mt-6">
+                        <iframe
+                            src="https://www.youtube.com/embed/2-zlU1ZHX_k"
+                            frameBorder="0"
+                            allowFullScreen
+                            className="w-full h-full"
+                        />
+                    </div>
+                    {/* <Button
                         href="/streams/matches"
                         className="sm:w-[27vw] w-[80vw] h-[10vh] bg-[#E31F2B] hover:bg-white transition duration-100 ease-in-out group flex-row-centered rounded-sm sm:mt-20 mt-6"
                         iconClassName="flex-row-start relative w-12 h-12"
@@ -34,13 +41,13 @@ const Streams = () => {
                         textClassName="ml-5 h-full text-center text-5xl z-10 font-bebas mt-6 text-black hover:text-black transition duration-1000 ease-in-out"
                     >
                         SEE YOUR TEAM'S MATCHES
-                    </Button>
-                    <Link
+                    </Button> */}
+                    {/* <Link
                         href="/streams/vods"
                         className="w-[27vw] flex-row-centered text-center font-lexend font-light mt-4 underline"
                     >
                         Click here to see the full VODS
-                    </Link>
+                    </Link> */}
                 </div>
             </aside>
 

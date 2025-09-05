@@ -6,7 +6,7 @@ import React from "react";
 
 const page = () => {
     return (
-        <div className="sm:fixed relative bg-black mt-[64px] h-screen overflow-hidden">
+        <div className="sm:relative relative bg-black mt-[64px] min-h-screen">
             <Waves />
             <Streams />
             {/* <div className="flex-row-centered w-screen h-[200vh]">

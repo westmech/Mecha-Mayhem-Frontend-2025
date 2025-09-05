@@ -20,7 +20,7 @@ const Footer = () => {
             <div className="w-[90vw] h-2/3 border-b-2 border-white border-opacity-40 flex flex-col sm:flex-row items-center sm:items-start justify-start">
                 <div className="flex flex-col sm:items-start font-extralight text-base lg:text-xl sm:gap-6 sm:mr-12 mb-10 w-3/4 sm:w-1/4">
                     <span className="font-semibold flex items-start sm:w-full">Contact Us:</span>
-                    <span className="flex flex-row items-center sm:flex-row-centered">
+                    <span className="flex flex-row items-center">
                         <figure className="w-[4vw] h-[4vw] sm:w-[1.5vw] sm:h-[1.5vw] relative overflow-hidden mr-2">
                             <Image
                                 src={"/footer/Gmail Icon.svg"}
@@ -31,7 +31,7 @@ const Footer = () => {
                         </figure>
                         <span className="break-normal">Mecha@westernmech.ca</span>
                     </span>
-                    <span className="flex flex-row items-center sm:flex-row-centered">
+                    <span className="flex flex-row items-center">
                         <figure className="w-[4vw] h-[4vw] sm:w-[1.5vw] sm:h-[1.5vw] relative overflow-hidden mr-2">
                             <Image
                                 src={"/footer/Phone Icon.svg"}
@@ -45,7 +45,7 @@ const Footer = () => {
                 </div>
                 <div className="flex flex-col sm:items-start font-extralight text-base lg:text-xl sm:gap-6 sm:mr-12 mb-10 w-3/4 sm:w-1/4">
                     <span className="font-semibold flex items-start sm:w-full">Follow Us:</span>
-                    <figure className="flex flex-row items-center sm:flex-row-centered">
+                    <span className="flex flex-row items-center">
                         <figure className="w-[4vw] h-[4vw] sm:w-[1.5vw] sm:h-[1.5vw] relative overflow-hidden mr-2">
                             <Image
                                 src={"/footer/Instagram Icon.svg"}
@@ -55,8 +55,8 @@ const Footer = () => {
                             />
                         </figure>
                         <span className="break-normal">@western_mechatronic</span>
-                    </figure>
-                    <figure className="flex flex-row items-center sm:flex-row-centered">
+                    </span>
+                    <span className="flex flex-row items-center">
                         <figure className="w-[4vw] h-[4vw] sm:w-[1.5vw] sm:h-[1.5vw] relative overflow-hidden mr-2">
                             <Image
                                 src={"/footer/Youtube Icon.svg"}
@@ -66,7 +66,7 @@ const Footer = () => {
                             />
                         </figure>
                         <span className="break-normal">@westernmechatronics</span>
-                    </figure>
+                    </span>
                 </div>
                 <div className="flex flex-col sm:items-start font-extralight text-base lg:text-xl sm:gap-6 sm:mr-12 mb-10 w-3/4 sm:w-1/4">
                     <span className="font-semibold flex items-start sm:w-full">Report an Issue:</span>
