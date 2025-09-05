@@ -1,0 +1,34 @@
+name: Merge main into prod
+
+on:
+  schedule:
+    # Runs every Sunday at 23:59 UTC
+    - cron: '59 23 * * 0'
+  workflow_dispatch: # 👈 allows manual trigger in Actions tab
+
+permissions:
+  contents: write
+
+jobs:
+  merge:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Configure Git
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+
+      - name: Merge main into prod
+        run: |
+          git fetch origin
+          git checkout prod
+          if ! git merge origin/main --no-edit; then
+            echo "❌ Merge conflict detected. Please resolve manually."
+            exit 1
+          fi
+          git push origin prod

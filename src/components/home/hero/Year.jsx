@@ -75,7 +75,7 @@ const Year = ({ startYear, targetYear, startAnimation=true }) => { // Accept sta
                 return (
                     <div
                         key={index}
-                        className="sm:w-96 w-42 flex-row-centered 2xl:translate-x-[calc(2.5rem-2vw)] xl:translate-x-[calc(45vw-12rem)] lg:translate-x-[calc(45vw+20rem)] md:translate-x-[calc(30vw+43.5rem)] translate-x-[calc(50vw+23rem)]"
+                        className="sm:w-96 w-42 flex-row-centered 2xl:translate-x-[calc(1.5rem-2vw)] xl:translate-x-[calc(45vw-13rem)] lg:translate-x-[calc(45vw+19rem)] md:translate-x-[calc(30vw+42.5rem)] translate-x-[calc(50vw+22rem)]"
                     >
                         <motion.p
                             initial={{

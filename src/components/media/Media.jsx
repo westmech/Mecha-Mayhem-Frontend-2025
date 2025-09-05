@@ -1,9 +1,7 @@
 import React from "react";
 import Image from "next/image";
-import Backdrop from "../home/hero/Backdrop";
 import Media_Mobile from "./Media-Mobile";
-import Link from "next/link";
-import Button from "../Button";
+import Button from "../ui/Button";
 
 const Media = () => {
     return (
@@ -22,13 +20,13 @@ const Media = () => {
                             and our community.
                         </p>
                         <Button
-                            href="https://www.flickr.com/photos/mercmediateam/albums/72177720314562049"
+                            href="https://www.flickr.com/photos/mercmediateam/albums/72177720323717862/with/54317795558"
                             className="2xl:w-[27vw] 2xl:h-[10vh] lg:w-[30vw] lg:h-[8vh] bg-[#E31F2B] hover:bg-white transition duraiton-100 ease-in-out group flex-row-centered rounded-sm mt-20"
                             iconClassName="flex-row-start relative w-12 h-12"
-                            alt="mecha mayhem logo"
+                            alt="Mecha Mayhem 2025 photos"
                             textClassName="flex-row-centered h-full text-center 2xl:text-5xl lg:text-4xl z-10 font-bebas mt-2  text-black hover:text-black transition duration-1000 ease-in-out"
                         >
-                            SEE IMAGES
+                            See 2025 Photos
                         </Button>
                     </div>
                 </aside>

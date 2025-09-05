@@ -4,7 +4,7 @@ import Image from "next/image";
 import { usePathname } from "next/navigation";
 import React, { useEffect, useState } from "react";
 import Link from "next/link";
-import Button from "../Button";
+import Button from "../ui/Button";
 
 const LinkAndIcon = ({
     title,
@@ -101,6 +101,7 @@ const HexNut = ({ currentRoute }) => {
 const Navbar = () => {
     const whitelist = ["/streams/matches", "/streams/vods"];
     const location = usePathname();
+    
     const [active, setActive] = useState(String(location.pathname));
     const [menu, setMenu] = useState(false);
 
