@@ -75,7 +75,7 @@ const Year = ({ startYear, targetYear, startAnimation=true }) => { // Accept sta
                 return (
                     <div
                         key={index}
-                        className="sm:w-96 w-42 flex-row-centered 2xl:translate-x-[calc(1.5rem-2vw)] xl:translate-x-[calc(45vw-13rem)] lg:translate-x-[calc(45vw+19rem)] md:translate-x-[calc(30vw+42.5rem)] translate-x-[calc(50vw+22rem)]"
+                        className="sm:w-96 w-42 flex-row-centered 2xl:translate-x-[calc(1.5rem-2vw)] xl:translate-x-[calc(45vw-13rem)] lg:translate-x-[calc(45vw+19rem)] md:translate-x-[calc(30vw+42.5rem)] translate-x-[calc(50vw+27rem)]"
                     >
                         <motion.p
                             initial={{
@@ -84,14 +84,14 @@ const Year = ({ startYear, targetYear, startAnimation=true }) => { // Accept sta
                                 scale: focused ? 1.05 : subfocused ? 0.9 : 0.75,
                                 marginRight: focused ? 50 : subfocused ? 5 : 4,
                                 marginLeft: focused ? 40 : subfocused ? 5 : 4,
-                                x: -100,
+                                x: widthRef.current < 640 ? -50 : -100,
                             }}
                             animate={{
                                 opacity: calcOpacity(focused, subfocused, index),
                                 scale: focused ? 1.05 : subfocused ? 0.9 : 0.75,
                                 marginRight: focused ? 50 : subfocused ? 5 : 4,
                                 marginLeft: focused ? 40 : subfocused ? 5 : 4,
-                                x: -100 - rotationConst * (fIndex - 2),
+                                x: widthRef.current < 640 ? -50 - rotationConst * (fIndex - 2) : -100 - rotationConst * (fIndex - 2),
                             }}
                             className={`                      
                             font-saira 2xl:text-9xl xl:text-8xl lg:text-7xl md:text-6xl text-7xl`}
