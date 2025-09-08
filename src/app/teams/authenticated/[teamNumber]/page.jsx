@@ -1,4 +1,4 @@
-import Waves from "@/components/Waves";
+import Waves from "@/components/ui/Waves";
 import TeamsPortal from "@/components/teams/TeamsPortal";
 
 const page = () => {

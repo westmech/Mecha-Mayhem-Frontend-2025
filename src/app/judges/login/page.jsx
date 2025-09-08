@@ -1,4 +1,4 @@
-import Waves from "@/components/Waves";
+import Waves from "@/components/ui/Waves";
 import { JudgesForm } from "@/components/judges/JudgesLogin";
 
 const page = () => {
