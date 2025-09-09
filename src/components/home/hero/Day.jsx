@@ -67,7 +67,7 @@ const Day = ({ startDay, targetDay, startAnimation=true }) => {
                 const single = parseInt(day, 10) < 10;
 
                 return (
-                    <div key={index} className="sm:w-[8vw] w-14 flex-row-centered 2xl:-translate-x-[10vw] xl:-translate-x-[20vw] xl:-mt-6 lg:-translate-x-[28vw] lg:-mt-8 md:-translate-x-[32vw] -translate-x-[calc(36rem-50vw)]">
+                    <div key={index} className="sm:w-[8vw] w-14 flex-row-centered 2xl:-translate-x-[10vw] xl:-translate-x-[20vw] xl:-mt-6 lg:-translate-x-[28vw] lg:-mt-8 md:-translate-x-[32vw] -translate-x-[calc(34.5rem-50vw)]">
                         <motion.p
                             initial={{
                                 skew: -12,
