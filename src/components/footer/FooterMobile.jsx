@@ -50,7 +50,7 @@ const FooterMobile = () => {
                                 fill
                             />
                         </figure>
-                        <a className="hover:cusor-pointer" href="http://instagram.com/western_mechatronics" target="_blank" rel="noopener noreferrer">@western_mechatronics</a>
+                        <a className="hover:cusor-pointer" href="http://instagram.com/mecha.mayhem" target="_blank" rel="noopener noreferrer">@western_mechatronics</a>
                     </span>
 
                     <span className="flex-row-centered justify-center gap-2 ml-4">
