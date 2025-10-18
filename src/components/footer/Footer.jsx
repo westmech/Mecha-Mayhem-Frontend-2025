@@ -15,7 +15,7 @@ const Footer = () => {
                         fill
                     />
                 </figure>
-                » Mecha Mayhem 2024
+                » Mecha Mayhem 2026
             </div>
             <div className="w-[90vw] h-2/3 border-b-2 border-white border-opacity-40 flex flex-col sm:flex-row items-center sm:items-start justify-start">
                 <div className="flex flex-col sm:items-start font-extralight text-base lg:text-xl sm:gap-6 sm:mr-12 mb-10 w-3/4 sm:w-1/4">
@@ -54,7 +54,7 @@ const Footer = () => {
                                 fill
                             />
                         </figure>
-                        <span className="break-normal">@western_mechatronic</span>
+                        <span className="break-normal">@mecha.mayhem</span>
                     </span>
                     <span className="flex flex-row items-center">
                         <figure className="w-[4vw] h-[4vw] sm:w-[1.5vw] sm:h-[1.5vw] relative overflow-hidden mr-2">
@@ -96,7 +96,7 @@ const Footer = () => {
             </div>
             <div className="w-[90vw] h-1/3 flex flex-col sm:flex-row text-xl pt-[2vh] sm:pt-[8vh] font-light">
                 <span className="sm:w-[50vw]">
-                    @2021 - 2024 Western Mechatronics
+                    @2021 - 2026 Western Mechatronics
                 </span>
                 <div className="sm:w-[40vw] flex flex-row items-start sm:justify-end mt-3 sm:mt-0">
                     <span>mechamayhem.ca</span>
