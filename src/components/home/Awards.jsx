@@ -18,19 +18,18 @@ const Awards = () => {
                 <div className="absolute w-screen h-screen lg:flex lg:flex-col lg:items-end lg:justify-center flex-col-centered text-5xl z-10">
                     {/* desktop styling */}
                     <header className="hidden sm:flex 2xl:text-8xl xl:text-7xl lg:text-7xl sm:text-8xl sm:z-10 sm:ml-16 sm:mt-16 sm:-mr-6 font-saira pr-16">
-                        5 WORLDS SPOTS.
+                        3 WORLDS SPOTS.
                     </header>
                     {/* mobile styling */}
                     <header className="sm:hidden text-5xl z-10 font-saira flex-col-centered w-full">
-                        5 WORLDS
+                        3 WORLDS
                         <span className="text-7xl z-10 font-saira">SPOTS</span>
                     </header>
                     <h2 className="2xl:text-6xl xl:text-5xl lg:text-4xl sm:z-10 lg:ml-20 font-bebas mt-[3vh] sm:pr-16">
-                        {"(3x)"} HIGH SCHOOL
+                        {"(1x)"} HIGH SCHOOL
                     </h2>
                     <p className="2xl:text-6xl xl:text-5xl lg:text-4xl lg:flex lg:flex-col lg:items-end lg:justify-center flex-col-centered sm:pr-16 text-3xl">
                         <span>Excellence</span>
-                        <span>{"(2x)"} Tournament Champions</span>
                     </p>
                     <h2 className="2xl:text-6xl xl:text-5xl lg:text-4xl z-10 lg:ml-20 font-bebas sm:mt-[6vh] sm:pr-16 mt-[3vh]">
                         {"(1x)"} MIDDLE SCHOOL
