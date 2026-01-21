@@ -8,7 +8,7 @@ const General = () => {
                 <h1 className="smLtext-8xl text-6xl sm:mt-0 mt-20 font-saira sm:w-[70vw] w-full text-center">
                     WHAT IS MECHA MAYHEM?
                 </h1>
-                <figure className="flex-row-start">
+                {/* <figure className="flex-row-start">
                     <div className="relative w-[70vw] h-[5vw]">
                         <Image
                             src="/info/infobanner.svg"
@@ -17,7 +17,7 @@ const General = () => {
                             fill
                         />
                     </div>
-                </figure>
+                </figure> */}
             </div>
             <div className="flex-row-centered sm:w-[70vw] w-full">
                 <p className="flex-col-centered font-lexend sm:text-3xl text-xl sm:w-1/2 w-[80vw] gap-20">
