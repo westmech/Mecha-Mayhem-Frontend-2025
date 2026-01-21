@@ -57,22 +57,22 @@ const FAQ = () => {
           <QA
             question={"What days should I attend?"}
             answer={`
-                Mecha Mayhem 2025 will take place over three days, from February 7-9, 2025.
+                Mecha Mayhem 2026 will take place over three days, from February 6-8, 2026.
                 We recommend attending all three days to experience the full event, including team competitions,
                 interactive booths, and the award ceremonies.
                 Each day offers different activities and opportunities to engage with the event.
-                However, if you can only attend one day, we recommend Sunday, February 9, that will feature
-                the eliminations bracket and crown the Mecha Mayhem 2025 Champions!`}
+                However, if you can only attend one day, we recommend Sunday, February 8, that will feature
+                the eliminations bracket and crown the Mecha Mayhem 2026 Champions!`}
           />
           <QA
             question={"Is the event free?"}
-            answer={`Yes, all spectators are free to attend Mecha Mayhem 2025.
+            answer={`Yes, all spectators are free to attend Mecha Mayhem 2026.
               We encourage everyone—students, parents, educators, and the general public—to come and explore the exciting
               world of robotics and STEM education.`}
           />
           <QA
             question={"What should I expect at Mecha Mayhem?"}
-            answer={`At Mecha Mayhem, you can expect a thrilling robotics competition featuring over 250 teams from around the world. 
+            answer={`At Mecha Mayhem, you can expect a thrilling robotics competition featuring over 120 teams from around the world. 
               In addition to the matches, the event includes interactive booths from local tech companies and universities,
               opportunities to meet and network with industry professionals, and inspiring showcases of the latest in robotics
               and STEM innovation.
