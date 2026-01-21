@@ -29,13 +29,12 @@ const Info = () => {
                             </div>
                         </figure>
                         <Button
-                            href=""
+                            href="#maps"
                             className="sm:w-[27vw] w-[80vw] h-[10vh] bg-[#E31F2B] hover:bg-white transition duraiton-100 ease-in-out group flex-row-centered rounded-sm mt-20"
                             iconClassName="flex-row-start relative w-12 h-12"
                             src="/info/navico.svg"
                             alt="mecha mayhem logo"
-                            textClassName="ml-2 h-full text-center text-5xl z-10 font-bebas mt-12 text-black hover:text-black transition duration-1000 ease-in-out"
-                        >
+                            textClassName="ml-2 h-full text-center text-5xl z-10 font-bebas mt-12 text-black hover:text-black transition duration-1000 ease-in-out">
                             VIEW VENUE MAPS
                         </Button>
                     </div>

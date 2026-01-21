@@ -33,7 +33,7 @@ const Venue = () => {
                         </span>
                         <span>10 Minutes away from Partner Hotels</span>
                     </p>
-                    <Link href="/info"
+                    <Link href="/info#maps"
                     className="group sm:w-[30vw] sm:h-[10vh] w-[80vw] h-[8vh] bg-white hover:bg-black transition duraiton-100 ease-in-out group flex-row-centered rounded-sm mt-20">
                         <h2 className="w-full h-full text-center text-5xl z-10 font-bebas sm:mt-10 mt-4 text-black group-hover:text-white transition duration-200 ease-in-out">
                             SEE MAPS
