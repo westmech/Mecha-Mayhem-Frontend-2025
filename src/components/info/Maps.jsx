@@ -28,7 +28,7 @@ const Maps = () => {
                         />
                     </div>
                 </figure>
-                <figure className="flex-row-start">
+                {/* <figure className="flex-row-start">
                     <div className="relative sm:w-[55vw] h-[55vw] w-screen">
                         <Image
                             src="/info/visuals/Brochure 1.png"
@@ -47,7 +47,7 @@ const Maps = () => {
                             fill
                         />
                     </div>
-                </figure>
+                </figure> */}
             </div>
         </div>
     );
