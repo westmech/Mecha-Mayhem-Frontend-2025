@@ -1,6 +1,7 @@
 import dynamic from "next/dynamic";
 import Waves from "@/components/ui/Waves";
 import Hero from "@/components/home/Hero";
+import Merch from "@/components/home/Merch";
 
 // Dynamically load components with SSR disabled
 const Calgary = dynamic(() => import("@/components/home/Calgary"), { ssr: false });
@@ -15,7 +16,8 @@ export default function Home() {
             <Hero />   
             <Calgary />
             <Awards /> 
-            <Venue />  
+            <Venue />
+            <Merch />  
             <Sponsors />
         </main>
     );
