@@ -7,7 +7,7 @@ import Button from "../ui/Button";
 const Agenda = () => {
     return (
        <section className="w-screen h-screen overflow-hidden">
-            <div className="relative w-screen h-[100vh] bg-[#252525] text-white flex flex-col items-start justify-start overflow-hidden">
+            <div className="relative w-screen h-[100vh] bg-gradient-to-l from-[#434343] to-[#000000] text-white flex flex-col items-start justify-start overflow-hidden">
 
                 <div className="absolute w-screen h-screen lg:flex lg:flex-col lg:items-end lg:justify-start flex-col-centered text-5xl">
                     <header className="hidden sm:flex 2xl:text-8xl xl:text-7xl lg:text-7xl sm:text-8xl sm:z-10 sm:ml-16 sm:mt-16 sm:-mr-6 font-saira pr-16">
