@@ -63,7 +63,7 @@ export default function SponsorsPage() {
             <figure className="flex-row-centered w-full px-4 mt-16">
                 <div className="relative w-full h-48">
                     <Image
-                        src="/sponsors/event_2025.svg"
+                        src="/sponsors/Mecha_Logo2026.png"
                         alt="Mecha Mayhem Event 2025"
                         className="object-contain"
                         fill
