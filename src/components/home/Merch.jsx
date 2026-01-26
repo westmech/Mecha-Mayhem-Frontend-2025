@@ -12,9 +12,10 @@ export default function Merch() {
             <div className="text-center">
 
                 {/* title */}
-                <h2 className="text-6xl sm:text-7xl lg:text-8xl font-saira font-bold mb-4">
+
+                <header className="hidden sm:flex flex-row-centered text-8xl z-10 font-saira w-full">
                     MERCH
-                </h2>
+                </header>
 
                 {/* description */}
                 <p className="text-lg sm:text-xl font-bebas mb-6">
