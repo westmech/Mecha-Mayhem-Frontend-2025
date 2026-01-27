@@ -7,6 +7,7 @@ import Merch from "@/components/home/Merch";
 const Calgary = dynamic(() => import("@/components/home/Calgary"), { ssr: false });
 const Awards = dynamic(() => import("@/components/home/Awards"), { ssr: false });
 const Venue = dynamic(() => import("@/components/home/Venue"), { ssr: false });
+const Agenda = dynamic(() => import("@/components/home/Agenda"), { ssr: false });
 const Sponsors = dynamic(() => import("@/components/home/Sponsors"), { ssr: false });
 
 export default function Home() {
@@ -16,8 +17,9 @@ export default function Home() {
             <Hero />   
             <Calgary />
             <Awards /> 
-            <Venue />
-            <Merch />  
+            <Venue />  
+            <Agenda />
+            <Merch />
             <Sponsors />
         </main>
     );
