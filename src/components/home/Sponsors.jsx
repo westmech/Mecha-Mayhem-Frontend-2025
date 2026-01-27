@@ -52,7 +52,7 @@ export default function SponsorsPage() {
 
     return (
         <section className="py-12 w-screen">
-            <header className="hidden sm:flex flex-row-centered text-8xl z-10 ml-16 font-saira w-full">
+            <header className="hidden sm:flex flex-row-centered text-8xl z-10 font-saira w-full">
                 OUR SPONSORS
             </header>
 
