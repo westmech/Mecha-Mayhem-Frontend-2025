@@ -25,7 +25,7 @@ export default function Merch() {
                 {/* button for merch */}
                 <button
                     onClick={handleShopClick}
-                    className="px-8 py-3 bg-white text-black font-bold text-lg hover:bg-gray-200"
+                    className="px-8 py-3 bg-white text-black font-bold text-lg hover:bg-red-600 hover:text-white transition duration-100"
                 >
                     Shop Now
                 </button>
