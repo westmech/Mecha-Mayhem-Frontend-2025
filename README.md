@@ -1,5 +1,7 @@
 # Welcome to Mecha Mayhem 2025! 
 
+### Judges Portal Backend Source Code: https://github.com/westmech/Mecha-Mayhem-Backend-2025/tree/judges-portal_caleb
+
 The Mecha Mayhem V5RC Signature Event will be held at the home of the Calgary Stampede in the BMO Convention Center.
 
 Join the official event Discord! https://discord.gg/fMJSW3Jv4n
