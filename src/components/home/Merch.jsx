@@ -4,7 +4,7 @@ import React from "react";
 
 export default function Merch() {
     const handleShopClick = () => {
-        window.open("https://stores.inksoft.com/mecha_mayhem_2026/shop/home", "_blank");
+        window.open("https://stores.inksoft.com/mechamayhem/shop/home");
     };
 
     return (
