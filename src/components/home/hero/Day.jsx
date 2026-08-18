@@ -7,7 +7,9 @@ const Day = ({ startDay, targetDay, startAnimation=true }) => {
     const startingFIndex = 20; // starting day
     const dayPadding = 6;
     const maxDay = startDay + dayPadding;
-    const minDay = targetDay - dayPadding;
+    // The list must start at 0 so that list index === day value; the animation
+    // stop condition and focus math both rely on that invariant.
+    const minDay = 0;
 
     const [fIndex, setFIndex] = useState(startingFIndex);
 
@@ -67,7 +69,7 @@ const Day = ({ startDay, targetDay, startAnimation=true }) => {
                 const single = parseInt(day, 10) < 10;
 
                 return (
-                    <div key={index} className="sm:w-[8vw] w-14 flex-row-centered 2xl:-translate-x-[10vw] xl:-translate-x-[20vw] xl:-mt-6 lg:-translate-x-[28vw] lg:-mt-8 md:-translate-x-[32vw] -translate-x-[calc(34.5rem-50vw)]">
+                    <div key={index} className="sm:w-[8vw] w-14 flex-row-centered 2xl:-translate-x-[34vw] xl:-translate-x-[44vw] xl:-mt-6 lg:-translate-x-[52vw] lg:-mt-8 md:-translate-x-[56vw] -translate-x-[calc(45rem-50vw)]">
                         <motion.p
                             initial={{
                                 skew: -12,
