@@ -1,168 +1,205 @@
 "use client";
 
-import React, { Suspense, useEffect, useState } from "react";
-import Image from "next/image";
+// "Previous Champions" page (/awards). Fetches winners from the backend
+// (GET /awards/:year), caches each year in state, then filters client-side
+// (award dropdown, HS/MS division, team search). To add a season, append it
+// to YEARS below — division buttons appear automatically if the backend rows
+// carry a `division` field (2025+ merged HS/MS events).
+import React, { useEffect, useMemo, useState } from "react";
 import Trophy23 from "./trophies/Trophy23";
 import Trophy24 from "./trophies/Trophy24";
 import Display from "./Display";
 import axios from "axios";
-import Button from "../ui/Button";
+
+const YEARS = ["2027", "2026", "2025", "2024", "2023"];
+// Land on the most recent year that already has results (2027 is empty
+// until the event runs — bump this after each event).
+const DEFAULT_YEAR = "2026";
+
+// 3D trophy models only exist for some years
+const TROPHY_MAP = {
+    2023: Trophy23,
+    2024: Trophy24,
+};
+
+const YearButtons = ({ currentYear, setCurrentYear }) => (
+    <div className="z-30 flex w-fit space-x-4 p-2 lg:p-4 bg-red-600 -skew-x-12 mx-auto text-black font-lexend mt-4">
+        {YEARS.map((year) => (
+            <button
+                key={year}
+                onClick={() => setCurrentYear(year)}
+                className="border border-black px-2 py-1 lg:px-3 lg:py-2 text-xl hover:bg-black hover:text-white transition-all"
+                style={
+                    currentYear === year
+                        ? { backgroundColor: "black", color: "white" }
+                        : {}
+                }
+            >
+                <p className="skew-x-12">{year}</p>
+            </button>
+        ))}
+    </div>
+);
+
+const FilterBar = ({
+    awardTitles,
+    awardFilter,
+    setAwardFilter,
+    divisions,
+    divisionFilter,
+    setDivisionFilter,
+    teamSearch,
+    setTeamSearch,
+}) => (
+    <div className="z-30 flex flex-wrap items-center justify-center gap-3 mt-6 font-lexend">
+        <select
+            value={awardFilter}
+            onChange={(e) => setAwardFilter(e.target.value)}
+            className="bg-black text-white border border-white/60 rounded-sm px-3 py-2 text-lg"
+        >
+            <option value="All">All Awards</option>
+            {awardTitles.map((title) => (
+                <option key={title} value={title}>
+                    {title}
+                </option>
+            ))}
+        </select>
+
+        {divisions.length > 1 && (
+            <div className="flex">
+                {["All", ...divisions].map((div) => (
+                    <button
+                        key={div}
+                        onClick={() => setDivisionFilter(div)}
+                        className="border border-white/60 px-3 py-2 text-lg text-white hover:bg-[#E31F2B] hover:text-black transition-all first:rounded-l-sm last:rounded-r-sm"
+                        style={
+                            divisionFilter === div
+                                ? { backgroundColor: "#E31F2B", color: "black" }
+                                : {}
+                        }
+                    >
+                        {div}
+                    </button>
+                ))}
+            </div>
+        )}
+
+        <input
+            type="text"
+            value={teamSearch}
+            onChange={(e) => setTeamSearch(e.target.value)}
+            placeholder="Search team number or name"
+            className="bg-black text-white border border-white/60 rounded-sm px-3 py-2 text-lg w-64 placeholder:text-[#7c7c7c]"
+        />
+    </div>
+);
 
 const Awards = () => {
-    const [awards2023, setAwards2023] = useState([]);
-    const [awards2024, setAwards2024] = useState([]);
+    const [awardsByYear, setAwardsByYear] = useState({});
+    const [currentYear, setCurrentYear] = useState(DEFAULT_YEAR);
+    const [loading, setLoading] = useState(false);
 
-    const [currentYear, setCurrentYear] = useState("2024");
-
-    const handleSelectChange = (event) => {
-        setCurrentYear(event.target.value);
-    };
+    const [awardFilter, setAwardFilter] = useState("All");
+    const [divisionFilter, setDivisionFilter] = useState("All");
+    const [teamSearch, setTeamSearch] = useState("");
 
     useEffect(() => {
-        const fetchAwards = async (year, setAwards) => {
+        if (awardsByYear[currentYear]) return;
+
+        const fetchAwards = async (year) => {
+            setLoading(true);
             try {
                 const response = await axios.get(
                     `${process.env.NEXT_PUBLIC_BACKEND_ENDPOINT}/awards/${year}`
                 );
-                setAwards(response.data);
+                setAwardsByYear((prev) => ({ ...prev, [year]: response.data }));
             } catch (error) {
                 console.error(`Error fetching awards for ${year}:`, error);
+            } finally {
+                setLoading(false);
             }
         };
 
-        fetchAwards(2023, setAwards2023);
-        fetchAwards(2024, setAwards2024);
-    }, []);
+        fetchAwards(currentYear);
+    }, [currentYear, awardsByYear]);
 
-    const AWARDS_MAP = {
-        "2023":
-            (<div className="mt-16 lg:mt-0">
-                <div className="z-10 relative">
-                    <Display data={awards2023} />
-                </div>
-                <div className="sm:flex opacity-70 hidden"><Trophy23 /></div>
-            </div>),
+    // Reset filters when switching years so a stale award title can't hide everything
+    const selectYear = (year) => {
+        setCurrentYear(year);
+        setAwardFilter("All");
+        setDivisionFilter("All");
+    };
 
-        "2024":
-            (<div className="mt-16 lg:mt-0">
-                <div className="z-10 relative">
-                    <Display data={awards2024} />
-                </div>
-                <div className="sm:flex opacity-70 hidden"><Trophy24 /></div>
-            </div>),
-    }
+    const yearData = awardsByYear[currentYear] ?? [];
+    // Division buttons come from the data itself (HS/MS since 2025, IQ in 2027)
+    const divisions = [
+        ...new Set(yearData.map((row) => row.division).filter(Boolean)),
+    ];
+    const hasDivisions = divisions.length > 0;
+    const awardTitles = useMemo(
+        () => [...new Set(yearData.map((row) => row.award))],
+        [yearData]
+    );
+
+    const filteredData = yearData.filter((row) => {
+        if (awardFilter !== "All" && row.award !== awardFilter) return false;
+        if (
+            hasDivisions &&
+            divisionFilter !== "All" &&
+            row.division !== divisionFilter
+        )
+            return false;
+        if (teamSearch) {
+            const query = teamSearch.toLowerCase();
+            const matches =
+                String(row.team ?? "").toLowerCase().includes(query) ||
+                String(row.name ?? "").toLowerCase().includes(query);
+            if (!matches) return false;
+        }
+        return true;
+    });
+
+    const isFiltered =
+        awardFilter !== "All" || divisionFilter !== "All" || teamSearch !== "";
+    const Trophy = TROPHY_MAP[currentYear];
 
     return (
-        <section className="relative lg:flex lg:flex-row lg:justify-center w-screen bg-transparent mt-[64px] flex flex-col items-center">
-            <h1 className="font-saira text-6xl pt-8 lg:hidden">AWARDS</h1>
-            <p className="font-lexend text-xl px-8 py-2 text-center lg:hidden">
-                Unforgettable custom awards for each year. Check out our past winners below.
+        <section className="relative w-screen bg-transparent mt-[64px] flex flex-col items-center pb-24">
+            <h1 className="font-saira lg:text-7xl text-5xl text-center pt-10">
+                PREVIOUS CHAMPIONS
+            </h1>
+            <p className="font-lexend lg:text-2xl text-xl px-8 py-2 text-center">
+                Every champion and award winner from past Mecha Mayhems.
             </p>
 
-            <div className="hidden lg:block text-center w-[30%]">
-                <h1 className="font-saira text-8xl">AWARDS</h1>
-                <p className="font-lexend text-xl mt-4 mb-12">Unforgettable custom awards for each year. Check out our past winners below.</p>
+            <YearButtons currentYear={currentYear} setCurrentYear={selectYear} />
 
-                <div className="z-30 flex w-fit space-x-4 p-2 lg:p-4 bg-red-600 -skew-x-12 mx-auto text-black font-lexend mt-4">
-                    <button
-                        onClick={() => setCurrentYear("2024")}
-                        className={`border border-black px-2 py-1 lg:px-3 lg:py-2 text-xl hover:bg-black hover:text-white transition-all `}
-                        style={(currentYear === "2024") ? { backgroundColor: "black", color: "white" } : {}}
-                    >
-                        <p className="skew-x-12">2024</p>
-                    </button>
-                    <button
-                        onClick={() => setCurrentYear("2023")}
-                        className={`border border-black px-2 py-1 lg:px-3 lg:py-2 text-xl hover:bg-black hover:text-white transition-all`}
-                        style={(currentYear === "2023") ? { backgroundColor: "black", color: "white" } : {}}
-                    >
-                        <p className="skew-x-12">2023</p>
-                    </button>
-                </div>
+            <FilterBar
+                awardTitles={awardTitles}
+                awardFilter={awardFilter}
+                setAwardFilter={setAwardFilter}
+                divisions={divisions}
+                divisionFilter={divisionFilter}
+                setDivisionFilter={setDivisionFilter}
+                teamSearch={teamSearch}
+                setTeamSearch={setTeamSearch}
+            />
+
+            <div className="z-10 relative mt-8">
+                <Display
+                    data={filteredData}
+                    loading={loading}
+                    filtered={isFiltered}
+                />
             </div>
 
-            <div className="flex w-fit space-x-4 p-3 lg:p-4 bg-red-600 -skew-x-12 mx-auto text-black font-lexend mt-4 lg:hidden">
-                    <button
-                        onClick={() => setCurrentYear("2024")}
-                        className={`border border-black px-2 py-1 lg:px-3 lg:py-2 text-xl hover:bg-black hover:text-white transition-all `}
-                        style={(currentYear === "2024") ? { backgroundColor: "black", color: "white" } : {}}
-                    >
-                        <p className="skew-x-12">2024</p>
-                    </button>
-                    <button
-                        onClick={() => setCurrentYear("2023")}
-                        className={`border border-black px-2 py-1 lg:px-3 lg:py-2 text-xl hover:bg-black hover:text-white transition-all`}
-                        style={(currentYear === "2023") ? { backgroundColor: "black", color: "white" } : {}}
-                    >
-                        <p className="skew-x-12">2023</p>
-                    </button>
+            {Trophy && (
+                <div className="sm:flex opacity-70 hidden">
+                    <Trophy />
                 </div>
-
-
-
-
-            {/* this is fucked but so is all the three js relative styling bs deal with it or ill fix it later idrk */}
-            {/* im sleepy man */}
-            <div className="lg:mt-[700px]">
-                {AWARDS_MAP[currentYear]}
-            </div>
-
+            )}
         </section>
     );
 };
 
 export default Awards;
-
-
-// <section className="w-screen flex-col-centered">
-//             <div className="relative w-screen h-screen flex-row-centered bg-transparent">
-//                 <aside className="w-1/2">
-//                     <div className="flex-col-start ml-[11vw]">
-//                         <header className="font-saira text-[10rem]">
-//                             AWARDS
-//                         </header>
-//                         <p className="font-lexend text-3xl w-[40vw] -mt-5">
-//                             Explore all our custom awards, from spinning
-//                             trophies to unique worlds-qualifying banners
-//                         </p>
-//                         <Button
-//                             href=""
-//                             className="w-[27vw] h-[10vh] bg-[#E31F2B] hover:bg-white transition duraiton-100 ease-in-out group flex-row-centered rounded-sm mt-20"
-//                             iconClassName="flex-row-start relative w-12 h-12"
-//                             src="/streams/cameraico.svg"
-//                             alt="mecha mayhem logo"
-//                             textClassName="ml-5 h-full text-center text-5xl z-10 font-bebas mt-12 text-black hover:text-black transition duration-1000 ease-in-out"
-//                         >
-//                             SEE YOUR TEAMS CLIPS
-//                         </Button>
-//                     </div>
-//                 </aside>
-
-//                 <figure className="flex-row-start w-1/2">
-//                     <div className="relative w-[40vw] h-[40vw] mt-12 ml-12">
-//                         <Image
-//                             src="/awards/awards.png"
-//                             alt="mecha mayhem logo"
-//                             style={{ objectFit: "contain" }}
-//                             fill
-//                         />
-//                     </div>
-//                 </figure>
-//             </div>
-//             <div>
-//                 <div className="flex-row-centered">
-//                     <Suspense>
-//                         <div className="flex flex-col gap-12 mt-12 mr-[30vw] z-10">
-//                             <Display data={awards2024} />
-//                         </div>
-//                         <Trophy24 />
-//                     </Suspense>
-//                 </div>
-// <div className="flex-row-centered mt-16">
-//     <Trophy23 />
-//     <div className="flex flex-col gap-12 ml-[30vw] z-10">
-//         <Display data={awards2023} />
-//     </div>
-// </div>
-//             </div>
-//         </section>
