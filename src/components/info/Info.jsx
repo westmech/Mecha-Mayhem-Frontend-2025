@@ -2,6 +2,7 @@ import Image from "next/image";
 import React from "react";
 import General from "./General";
 import Maps from "./Maps";
+import Hotels from "./Hotels";
 import FAQ from "./FAQ";
 import Button from "../ui/Button";
 
@@ -18,24 +19,27 @@ const Info = () => {
                             Discover Canada’s Largest Robotics Showdown hosted
                             in the heart of Calgary
                         </p>
+                        {/* TODO: swap in the 2027 event brochure render once designed
+                            (the old brochureElement.png showed the 2024 brochure and
+                            retired partner logos) */}
                         <figure className="sm:hidden flex flex-row-start">
                             <div className="relative w-[100vw] h-[60vw] mt-12">
                                 <Image
-                                    src="/info/brochureElement.png"
-                                    alt="mecha mayhem logo"
+                                    src="/home/hero/Medallion.svg"
+                                    alt="Mecha Mayhem medallion"
                                     style={{ objectFit: "contain" }}
                                     fill
                                 />
                             </div>
                         </figure>
                         <Button
-                            href="#maps"
-                            className="sm:w-[27vw] w-[80vw] h-[10vh] bg-[#E31F2B] hover:bg-white transition duraiton-100 ease-in-out group flex-row-centered rounded-sm mt-20"
-                            iconClassName="flex-row-start relative w-12 h-12"
+                            href="#faq"
+                            className="sm:w-[34vw] w-[85vw] h-[10vh] bg-[#E31F2B] hover:bg-white transition duration-100 ease-in-out group flex-row-centered rounded-sm mt-20"
+                            iconClassName="flex-row-start relative w-12 h-12 shrink-0"
                             src="/info/navico.svg"
                             alt="mecha mayhem logo"
-                            textClassName="ml-2 h-full text-center text-5xl z-10 font-bebas mt-12 text-black hover:text-black transition duration-1000 ease-in-out">
-                            VIEW VENUE MAPS
+                            textClassName="ml-2 text-center sm:text-4xl text-3xl z-10 font-bebas text-black hover:text-black transition duration-1000 ease-in-out whitespace-nowrap">
+                            FREQUENTLY ASKED QUESTIONS
                         </Button>
                     </div>
                 </aside>
@@ -43,8 +47,8 @@ const Info = () => {
                 <figure className="sm:flex hidden flex-row-start">
                     <div className="relative w-[30vw] h-[40vw] mt-12 ml-12">
                         <Image
-                            src="/info/brochureElement.png"
-                            alt="mecha mayhem logo"
+                            src="/home/hero/Medallion.svg"
+                            alt="Mecha Mayhem medallion"
                             style={{ objectFit: "contain" }}
                             fill
                         />
@@ -53,6 +57,7 @@ const Info = () => {
             </div>
             <General />
             <Maps />
+            <Hotels />
             <FAQ />
         </section>
     );

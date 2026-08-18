@@ -5,7 +5,7 @@ const General = () => {
     return (
         <div className="flex-col-centered w-screen z-10">
             <div className="flex-col-centered w-screen">
-                <h1 className="smLtext-8xl text-6xl sm:mt-0 mt-20 font-saira sm:w-[70vw] w-full text-center">
+                <h1 className="sm:text-8xl text-6xl sm:mt-0 mt-20 font-saira sm:w-[70vw] w-full text-center">
                     WHAT IS MECHA MAYHEM?
                 </h1>
                 {/* <figure className="flex-row-start">
@@ -22,10 +22,11 @@ const General = () => {
             <div className="flex-row-centered sm:w-[70vw] w-full">
                 <p className="flex-col-centered font-lexend sm:text-3xl text-xl sm:w-1/2 w-[80vw] gap-20">
                     <span>
-                        Started in 2023, Mecha Mayhem brings together over 300
-                        University, High school, and Middle school teams from
-                        around the world to compete at the BMO Centre for three
-                        full days of absolutely breathtaking competition.
+                        Started in 2023, Mecha Mayhem brings together over 250
+                        teams from around the world — VEX V5RC High School and
+                        Middle School, VEX IQ (ES/MS Blended), and VEX U — to
+                        compete at the BMO Centre for three full days of
+                        absolutely breathtaking competition.
                     </span>
                     <span>
                         The event is open to ANYONE who is interested in
@@ -57,7 +58,12 @@ const General = () => {
                     the world, with more than a million students involved
                     spanning 60+ different countries. Learn more about VEX and
                     the game this year{" "}
-                    <a className="inline underline" href="">
+                    <a
+                        className="inline underline"
+                        href="https://www.vexrobotics.com/competition"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                    >
                         here.
                     </a>
                 </span>
@@ -75,11 +81,15 @@ const General = () => {
                     bonus of qualifying teams directly to the VEX Robotics World
                     Championships.
                 </span>
-                <figure className="flex-row-end w-1/2">
-                    <div className="relative w-full h-[30vw] mr-16">
+                {/* TODO: add the Global Robotics logo beside VEX once the
+                    asset is available (drop it in public/info/ and add a
+                    second figure here). The old logoLine.png was removed —
+                    it carried retired RECF branding. */}
+                <figure className="flex-row-centered w-1/2">
+                    <div className="relative w-full h-[20vw] mt-8">
                         <Image
-                            src="/info/logoLine.png"
-                            alt="mecha mayhem logo"
+                            src="/info/logoLine_vex.png"
+                            alt="VEX Robotics logo"
                             style={{ objectFit: "contain" }}
                             fill
                         />
