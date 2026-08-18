@@ -1,34 +1,31 @@
-"use client";
-
 import React from "react";
+import Link from "next/link";
 
+// Home-page teaser for the merch store — the full catalog + Zeffy checkout
+// live on /merch.
 export default function Merch() {
-    const handleShopClick = () => {
-        window.open("https://stores.inksoft.com/mecha_mayhem_2026/shop/home", "_blank");
-    };
-
     return (
         <div className="w-screen h-60 bg-black text-white flex items-center justify-center">
             <div className="text-center">
 
                 {/* title */}
 
-                <header className="hidden sm:flex flex-row-centered text-8xl z-10 font-saira w-full">
+                <header className="flex flex-row-centered sm:text-8xl text-5xl z-10 font-saira w-full">
                     MERCH
                 </header>
 
                 {/* description */}
-                <p className="text-lg sm:text-xl font-bebas mb-6">
+                <p className="text-lg sm:text-2xl font-bebas mb-6 mt-2">
                     Rep your team and support the Mecha!
                 </p>
 
                 {/* button for merch */}
-                <button
-                    onClick={handleShopClick}
-                    className="px-8 py-3 bg-white text-black font-bold text-lg hover:bg-red-600 hover:text-white transition duration-100"
+                <Link
+                    href="/merch"
+                    className="inline-block px-10 py-3 bg-[#E31F2B] text-black font-bebas text-2xl tracking-wide hover:bg-white transition duration-100 rounded-sm"
                 >
-                    Shop Now
-                </button>
+                    SHOP NOW
+                </Link>
             </div>
         </div>
     );
