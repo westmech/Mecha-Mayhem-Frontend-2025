@@ -13,7 +13,6 @@ const LinkAndIcon = ({
     targetRoute = "",
     setMenu,
 }) => {
-    console.log(currentRoute, targetRoute);
     return (
         <Link
             href={targetRoute}
@@ -63,18 +62,22 @@ const SmallLinkAndIcon = ({ title, url }) => {
 };
 
 const HexNut = ({ currentRoute }) => {
+    // Offsets align the hexnut with the evenly spaced (justify-between) menu
+    // rows: 5 rows pinned between 0 and ~55.5vh (steps of 55.5/4 ≈ 13.875).
+    // Re-derive these if a row is added back — /about and /merch are currently
+    // hidden from the menu (see the desktop link list below).
     const getRouteValue = () => {
-        const streamOffset = "15.3";
+        const streamOffset = "27.75";
         if (currentRoute.startsWith("/streams")) {
             return streamOffset;
         }
         switch (currentRoute) {
             case "/media":
-                return "7.3";
+                return "13.875";
             case "/streams":
                 return streamOffset;
             case "/awards":
-                return "46.7";
+                return "41.625";
             case "/info":
                 return "55.5";
         }
@@ -99,18 +102,13 @@ const HexNut = ({ currentRoute }) => {
 };
 
 const Navbar = () => {
-    const whitelist = ["/streams/matches", "/streams/vods"];
     const location = usePathname();
-    
-    const [active, setActive] = useState(String(location.pathname));
+
+    const [active, setActive] = useState(`/${String(location).split("/")[1]}`);
     const [menu, setMenu] = useState(false);
 
     useEffect(() => {
         setActive(`/${String(location).split("/")[1]}`);
-        console.log(String(location));
-        if (whitelist.includes(String(location))) {
-            console.log(whitelist.includes(String(location)));
-        }
     }, [location]);
 
     return (
@@ -128,11 +126,18 @@ const Navbar = () => {
                             />
                         </Link>
                     </figure>
-                    <section className="w-[70vw] flex justify-around font-bebas text-4xl">
+                    {/* Desktop links. New routes also need a mobile LinkAndIcon
+                        below AND a retuned HexNut offset (see getRouteValue).
+                        ABOUT (/about) and MERCH (/merch) are unlisted until
+                        those pages are ready to publish — the pages still
+                        render at their direct URLs. To restore them, re-add
+                        the entries here and the matching mobile rows below. */}
+                    <section className="w-[70vw] flex justify-center 2xl:gap-8 xl:gap-5 gap-3 font-bebas 2xl:text-4xl xl:text-3xl text-2xl">
                         {[
+                            ["/ HOME /", "/"],
                             ["/ MEDIA /", "/media"],
                             ["/ STREAMS /", "/streams"],
-                            // ["/ AWARDS /", "/awards"],
+                            ["/ CHAMPIONS /", "/awards"],
                             ["/ INFO /", "/info"],
                         ].map(([title, url]) => (
                             <Link
@@ -141,7 +146,7 @@ const Navbar = () => {
                                     active === url
                                         ? "text-[#939393]"
                                         : "text-white"
-                                } rounded-lg px-3 py-2 tracking-wide select-none`}
+                                } rounded-lg xl:px-2 px-1 py-2 tracking-wide select-none whitespace-nowrap`}
                                 key={title}
                             >
                                 {title}
@@ -150,14 +155,20 @@ const Navbar = () => {
                     </section>
 
                     <figure className="flex-row-end w-[15vw]">
-                        <div className="relative w-40 h-12 -ml-4">
+                        {/* Team portal login (codes are distributed to teams
+                            before the event) */}
+                        <Link
+                            className="relative w-40 h-12 -ml-4"
+                            href="/teams/login"
+                            title="Team portal login"
+                        >
                             <Image
                                 src="/nav/whiteprofile.svg"
-                                alt="mecha mayhem logo"
+                                alt="team portal login"
                                 style={{ objectFit: "contain" }}
                                 fill
                             />
-                        </div>
+                        </Link>
                     </figure>
                 </div>
             </nav>
@@ -248,31 +259,13 @@ const Navbar = () => {
                             targetRoute="/streams"
                             setMenu={setMenu}
                         />
-                        <div className="w-full flex flex-col justify-between items-start h-[20vh]">
-                            <SmallLinkAndIcon
-                                title="Coming soon"
-                                url="/nav/mobile_icons/ext_link.svg"
-                            />
-                            <SmallLinkAndIcon
-                                title="Coming soon"
-                                url="/nav/mobile_icons/ext_link.svg"
-                            />
-                            <SmallLinkAndIcon
-                                title="Coming soon"
-                                url="/nav/mobile_icons/ext_link.svg"
-                            />
-                            <SmallLinkAndIcon
-                                title="Coming soon"
-                                url="/nav/mobile_icons/ext_link.svg"
-                            />
-                        </div>
-                        {/* <LinkAndIcon
-                            title="Awards"
+                        <LinkAndIcon
+                            title="Champions"
                             url="/nav/mobile_icons/awards.svg"
                             currentRoute={active}
                             targetRoute="/awards"
                             setMenu={setMenu}
-                        /> */}
+                        />
                         <LinkAndIcon
                             title="Info"
                             url="/nav/mobile_icons/info.svg"
@@ -280,18 +273,28 @@ const Navbar = () => {
                             targetRoute="/info"
                             setMenu={setMenu}
                         />
+                        {/* About + Merch rows are hidden until those pages are
+                            ready to publish — restoring them means re-adding
+                            the desktop entries and the HexNut offsets too. */}
                     </div>
                 </div>
                 <Button
-                    href="https://www.robotevents.com/robot-competitions/vex-robotics-competition/RE-V5RC-25-0091.html#general-info"
-                    className="sm:w-[30vw] w-[80vw] h-15 bg-[#E31F2B] hover:bg-white transition duraiton-100 ease-in-out group flex-row-centered rounded-sm "
+                    href="https://events.vex.com/robot-competitions/vex-robotics-competition/RE-V5RC-26-4355.html#general-info"
+                    className="sm:w-[30vw] w-[80vw] h-15 bg-[#E31F2B] hover:bg-white transition duration-100 ease-in-out group flex-row-centered rounded-sm "
                     textClassName="w-full my-2 text-center text-3xl z-10 font-bebas text-black hover:text-black transition duration-1000 ease-in-out"
                 >
                     REGISTER TODAY
                 </Button>
                 <p className="mt-2 text-[12px] text-[#A3A3A3] tracking-wide">
-                    Registration closes Oct 13
+                    February 12–14, 2027 · BMO Centre, Calgary
                 </p>
+                <Link
+                    href="/teams/login"
+                    onClick={() => setMenu(false)}
+                    className="mt-4 font-bebas text-2xl text-white underline underline-offset-4 decoration-[#E31F2B]"
+                >
+                    Team Portal Login
+                </Link>
             </div>
         </>
     );
