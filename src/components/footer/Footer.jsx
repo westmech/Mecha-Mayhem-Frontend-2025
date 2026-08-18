@@ -1,5 +1,4 @@
 import Image from "next/image";
-import Link from 'next/link'
 import React from "react";
 import FooterMobile from "./FooterMobile";
 
@@ -15,7 +14,7 @@ const Footer = () => {
                         fill
                     />
                 </figure>
-                » Mecha Mayhem 2026
+                » Mecha Mayhem 2027
             </div>
             <div className="w-[90vw] h-2/3 border-b-2 border-white border-opacity-40 flex flex-col sm:flex-row items-center sm:items-start justify-start">
                 <div className="flex flex-col sm:items-start font-extralight text-base lg:text-xl sm:gap-6 sm:mr-12 mb-10 w-3/4 sm:w-1/4">
@@ -45,42 +44,57 @@ const Footer = () => {
                 </div>
                 <div className="flex flex-col sm:items-start font-extralight text-base lg:text-xl sm:gap-6 sm:mr-12 mb-10 w-3/4 sm:w-1/4">
                     <span className="font-semibold flex items-start sm:w-full">Follow Us:</span>
-                    <span className="flex flex-row items-center">
+                    <a
+                        href="https://www.instagram.com/mecha.mayhem"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="flex flex-row items-center hover:text-[#E31F2B] transition-colors"
+                    >
                         <figure className="w-[4vw] h-[4vw] sm:w-[1.5vw] sm:h-[1.5vw] relative overflow-hidden mr-2">
                             <Image
                                 src={"/footer/Instagram Icon.svg"}
-                                alt="A picture of our facility's stations"
+                                alt="Instagram logo"
                                 style={{ objectFit: "cover" }}
                                 fill
                             />
                         </figure>
                         <span className="break-normal">@mecha.mayhem</span>
-                    </span>
-                    <span className="flex flex-row items-center">
+                    </a>
+                    <a
+                        href="https://www.youtube.com/channel/UCzIGIOC30ne4qzChe6lRZ0g"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="flex flex-row items-center hover:text-[#E31F2B] transition-colors"
+                    >
                         <figure className="w-[4vw] h-[4vw] sm:w-[1.5vw] sm:h-[1.5vw] relative overflow-hidden mr-2">
                             <Image
                                 src={"/footer/Youtube Icon.svg"}
-                                alt="A picture of our facility's stations"
+                                alt="YouTube logo"
                                 style={{ objectFit: "cover" }}
                                 fill
                             />
                         </figure>
-                        <span className="break-normal">@westernmechatronics</span>
-                    </span>
+                        <span className="break-normal">@western_mechatronics</span>
+                    </a>
+                    <a
+                        href="https://discord.gg/fMJSW3Jv4n"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="flex flex-row items-center hover:text-[#E31F2B] transition-colors"
+                    >
+                        <figure className="w-[4vw] h-[4vw] sm:w-[1.5vw] sm:h-[1.5vw] relative overflow-hidden mr-2">
+                            <Image
+                                src={"/footer/Discord Icon.svg"}
+                                alt="Discord logo"
+                                style={{ objectFit: "contain" }}
+                                fill
+                            />
+                        </figure>
+                        <span className="break-normal">Event Discord</span>
+                    </a>
                 </div>
                 <div className="flex flex-col sm:items-start font-extralight text-base lg:text-xl sm:gap-6 sm:mr-12 mb-10 w-3/4 sm:w-1/4">
                     <span className="font-semibold flex items-start sm:w-full">Report an Issue:</span>
-                    {/* <span className="flex flex-row items-center sm:flex-row-centered">
-                        <figure className="w-[4vw] h-[4vw] sm:w-[1.5vw] sm:h-[1.5vw] relative overflow-hidden mr-2">
-                            <Image
-                                src={"/footer/Git Icon.svg"}
-                                alt="A picture of our facility's stations"
-                                style={{ objectFit: "cover" }}
-                                fill
-                            />
-                        </figure>
-                        <Link href="https://github.com/liuisaac/Mecha_Mayhem_App_2024/issues">Report a bug</Link>
-                    </span> */}
                     <span className="flex flex-row items-center sm:flex-row-centered">
                         <figure className="w-[4vw] h-[4vw] sm:w-[1.5vw] sm:h-[1.5vw] relative overflow-hidden mr-2">
                             <Image
@@ -96,7 +110,7 @@ const Footer = () => {
             </div>
             <div className="w-[90vw] h-1/3 flex flex-col sm:flex-row text-xl pt-[2vh] sm:pt-[8vh] font-light">
                 <span className="sm:w-[50vw]">
-                    @2021 - 2026 Western Mechatronics
+                    @2021 - 2027 Western Mechatronics
                 </span>
                 <div className="sm:w-[40vw] flex flex-row items-start sm:justify-end mt-3 sm:mt-0">
                     <span>mechamayhem.ca</span>

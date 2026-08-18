@@ -63,6 +63,17 @@ const FooterMobile = () => {
                         </figure>
                         <a className="hover:cusor-pointer" href="https://www.youtube.com/channel/UCzIGIOC30ne4qzChe6lRZ0g" target="_blank" rel="noopener noreferrer">@western_mechatronics</a>
                     </span>
+
+                    <span className="flex-row-centered gap-2 ml-4">
+                        <figure className="size-5 relative overflow-hidden">
+                            <Image
+                                src={"/footer/Discord Icon.svg"}
+                                style={{ objectFit: "contain" }}
+                                fill
+                            />
+                        </figure>
+                        <a className="hover:cusor-pointer" href="https://discord.gg/fMJSW3Jv4n" target="_blank" rel="noopener noreferrer">Event Discord</a>
+                    </span>
                 </div>
 
 
