@@ -83,7 +83,7 @@ export function JudgesForm() {
               {errors.email && (<small className="text-danger text-red-500">{errors.email.message}</small>)}
 
               {/* include validation with required or other standard HTML validation rules */}
-              <input type="password" autocomplate="off" className="text-white font-lexend bg-black border-2 border-gray-300 rounded w-[40vh] md:w-[50vh] p-2 h-10" placeholder="password" {...register("password", passwordValidation)} />
+              <input type="password" autoComplete="off" className="text-white font-lexend bg-black border-2 border-gray-300 rounded w-[40vh] md:w-[50vh] p-2 h-10" placeholder="password" {...register("password", passwordValidation)} />
               {errors.password && (<small className="text-danger text-red-500">{errors.password.message}</small>)}
 
               <div className="flex flex-row items-start justify-center gap-x-3 pt-10">

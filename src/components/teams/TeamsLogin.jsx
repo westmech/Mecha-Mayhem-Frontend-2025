@@ -50,7 +50,11 @@ export default function TeamsLogin() {
                         <div className="text-danger text-center text-red-500 mb-10">{error}</div>
                     )}
                     <div className="flex flex-col items-center">
-                        <input type="text" id="teamID" name="teamID" value={teamID} className="text-white font-lexend bg-black border-2 border-gray-300 rounded w-[40vh] md:w-[50vh] p-2 h-10 mb-2" placeholder="Please Enter Your Team's ID: " onChange={(e) => setTeamID(e.target.value)} required />
+                        <input type="text" id="teamID" name="teamID" value={teamID} className="text-white font-lexend bg-black border-2 border-gray-300 rounded w-[40vh] md:w-[50vh] p-2 h-10 mb-2" placeholder="Enter your team login code" onChange={(e) => setTeamID(e.target.value)} required />
+                        <p className="text-sm text-gray-500 mb-4 w-[40vh] md:w-[50vh] text-center">
+                            Login codes are emailed to registered teams about
+                            two weeks before the event.
+                        </p>
                         <Button type="submit" sx={{backgroundColor: "black", color: "white", fontFamily: "font-lexend"}}>Submit</Button>
                     </div>
                 </form>

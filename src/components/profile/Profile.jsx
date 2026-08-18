@@ -52,7 +52,7 @@ const Profile = ({ setSubmit, setInfo, reqTeam }) => {
                     </div>
                 </figure>
                 <div className="flex-row-centered mt-[30vh] absolute">
-                    <div className="flex-col-centered w-[27vw] h-[10vh] bg-[#E31F2B] hover:bg-white transition duraiton-100 ease-in-out ">
+                    <div className="flex-col-centered w-[27vw] h-[10vh] bg-[#E31F2B] hover:bg-white transition duration-100 ease-in-out ">
                         <div className="border-[#191B21] w-4/5 flex-row-centered">
                             <figure
                                 className="flex-row-start mr-4 hover:cursor-pointer"
