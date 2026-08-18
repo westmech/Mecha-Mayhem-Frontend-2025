@@ -53,23 +53,23 @@ export default function SponsorsPage() {
     return (
         <section className="py-12 w-screen">
             <header className="hidden sm:flex flex-row-centered text-8xl z-10 font-saira w-full">
-                OUR SPONSORS
+                OUR 2026 SPONSORS
             </header>
 
             <header className="sm:hidden text-5xl z-10 font-saira flex-col-centered w-full">
-                OUR
+                OUR 2026
                 <span className="text-7xl z-10 font-saira">SPONSORS</span>
             </header>
-            <figure className="flex-row-centered w-full px-4 mt-16">
-                <div className="relative w-full h-48">
-                    <Image
-                        src="/sponsors/Mecha_Logo2026.png"
-                        alt="Mecha Mayhem Event 2025"
-                        className="object-contain"
-                        fill
-                    />
-                </div>
-            </figure>
+            {/* The logos below are the confirmed 2026 partners. The 2027 roster
+                is still being finalized — when it lands, swap the files in
+                public/sponsors/<tier>/ and bump the year in this heading and in
+                the note underneath. */}
+            <p className="font-lexend sm:text-xl text-base sm:w-[55vw] w-[85vw] text-center mt-6 mx-auto text-[#A3A3A3]">
+                Our 2027 sponsor roster is still being finalized — the partners
+                below supported Mecha Mayhem 2026.
+            </p>
+            {/* TODO: add the 2027 event logo here once designed (the old
+                Mecha_Logo2026.png poster was removed — stale year). */}
 
             <div className="flex flex-row items-center justify-center mt-16 w-screen px-20">
                 <figure className="w-[75vw] h-[1px] bg-white rounded-sm" />

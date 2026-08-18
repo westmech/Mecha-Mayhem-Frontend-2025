@@ -2,6 +2,9 @@ import fs from "fs";
 import path from "path";
 import { NextResponse } from "next/server";
 
+// Sponsors are read from public/sponsors/<tier>/ — drop a logo image into a
+// tier folder to add one; the filename (minus extension) becomes the name.
+// TODO: add the Global Robotics logo once available (replaced the RECF logo).
 const sponsorTiers = ["presenting", "gold", "silver", "bronze", "supporter"];
 
 export async function GET() {
