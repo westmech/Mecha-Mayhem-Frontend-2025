@@ -1,6 +1,5 @@
 import React from "react";
 import Image from "next/image";
-import Link from "next/link";
 import Button from "../ui/Button";
 
 const Streams = () => {
@@ -12,11 +11,11 @@ const Streams = () => {
                         STREAMS
                     </header>
                     <p className="font-lexend sm:text-3xl text-xl sm:w-[30vw] sm:-mt-5 sm:text-left text-center">
-                        Mecha Mayhem returns February 2026. See our trailer! 
+                        Mecha Mayhem returns February 2027. See our trailer!
                     </p>
                     <Button
                             href="https://www.youtube.com/@WestMechRobotics/streams"
-                            className="sm:w-[27vw] w-[80vw] h-[10vh] bg-[#E31F2B] hover:bg-white transition duraiton-100 ease-in-out group flex-row-centered rounded-sm mt-20"
+                            className="sm:w-[27vw] w-[80vw] h-[10vh] bg-[#E31F2B] hover:bg-white transition duration-100 ease-in-out group flex-row-centered rounded-sm mt-20"
                             iconClassName="flex-row-start relative w-12 h-12"
                             alt="mecha mayhem logo "
                             textClassName="ml-2 h-full text-center text-5xl z-10 font-bebas mt-14 text-black hover:text-black transition duration-1000 ease-in-out">
@@ -40,22 +39,6 @@ const Streams = () => {
                             className="w-full h-full"
                         />
                     </div>
-                    {/* <Button
-                        href="/streams/matches"
-                        className="sm:w-[27vw] w-[80vw] h-[10vh] bg-[#E31F2B] hover:bg-white transition duration-100 ease-in-out group flex-row-centered rounded-sm sm:mt-20 mt-6"
-                        iconClassName="flex-row-start relative w-12 h-12"
-                        src="/streams/cameraico.svg"
-                        alt="mecha mayhem logo"
-                        textClassName="ml-5 h-full text-center text-5xl z-10 font-bebas mt-6 text-black hover:text-black transition duration-1000 ease-in-out"
-                    >
-                        SEE YOUR TEAM'S MATCHES
-                    </Button> */}
-                    {/* <Link
-                        href="/streams/vods"
-                        className="w-[27vw] flex-row-centered text-center font-lexend font-light mt-4 underline"
-                    >
-                        Click here to see the full VODS
-                    </Link> */}
                 </div>
             </aside>
 
