@@ -24,10 +24,29 @@ const bebas = Bebas_Neue({
     variable: "--font-bebas",
 });
 
+const title = "Mecha Mayhem | Canada's Largest Robotics Competition";
+const description =
+    "Mecha Mayhem 2027 — Canada's largest VEX Robotics signature event, February 12-14, 2027 at the BMO Centre in Calgary, Alberta.";
+
 export const metadata = {
-    title: "Mecha Mayhem | Canada's Largest Robotics Competition",
-    description:
-        "Mecha Mayhem 2027 — Canada's largest VEX Robotics signature event, February 12-14, 2027 at the BMO Centre in Calgary, Alberta.",
+    metadataBase: new URL("https://www.mechamayhem.ca"),
+    title,
+    description,
+    openGraph: {
+        title,
+        description,
+        url: "/",
+        siteName: "Mecha Mayhem",
+        type: "website",
+        locale: "en_CA",
+        images: [{ url: "/HexLogo.png" }],
+    },
+    twitter: {
+        card: "summary_large_image",
+        title,
+        description,
+        images: ["/HexLogo.png"],
+    },
 };
 
 export default function RootLayout({ children }) {
